@@ -9,24 +9,23 @@ class Book extends Model
     protected $fillable = [
         'category_id',
         'title',
-        'author',
-        'release_date',
+        'writer',
+        'release_date'
     ];
 
-    protected function casts(): array
-    {
+    protected function casts(){
         return [
-            'release_date' => 'date',
+            'release_date' => 'date'
         ];
     }
 
-    public function category()
-    {
+    public function category(){
         return $this->belongsTo(Category::class);
     }
 
-    public function borrows()
-    {
+    public function borrow(){
         return $this->hasMany(Borrow::class);
     }
+    
+    
 }
